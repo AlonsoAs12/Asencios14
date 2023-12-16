@@ -1,0 +1,28 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Asencios14.Views.EstudiantePage"
+             Title="CRUD Estudiantes">
+
+    <StackLayout>
+        <ListView ItemsSource="{Binding Estudiantes}" SelectedItem="{Binding EstudianteSeleccionado}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding NombreEstudiante}" Detail="{Binding NombreCurso}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Margin="10">
+            <Label Text="Nombre del Estudiante:"/>
+            <Entry Text="{Binding EstudianteSeleccionado.NombreEstudiante, Mode=TwoWay}" />
+            <Label Text="Nombre del Curso:"/>
+            <Entry Text="{Binding EstudianteSeleccionado.NombreCurso, Mode=TwoWay}" />
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Guardar" Command="{Binding GuardarCommand}" />
+                <Button Text="Actualizar" Command="{Binding ActualizarCommand}" />
+                <Button Text="Eliminar" Command="{Binding EliminarCommand}" />
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
